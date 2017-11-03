@@ -14,9 +14,28 @@
   tags:
     - jenkins
 
+
 - name: Jenkins - install
   yum:
    name=jenkins
    state=present
   tags:
     - jekins
+
+- name: This is a workaround to start jenkins through handlers
+  file:
+    path: /home/vagrant/somefile
+    state: touch
+    mode: "u=rw,g=r,o=r"
+  notify:
+    - start jenkins
+  tags:
+    - jekins
+
+# Avoid do this    
+#- name: This is a workaround to start jenkins through handlers
+#  command: touch /home/vagrant/somefile
+#  notify:
+#    - start jenkins
+#  tags:
+#    - jekins

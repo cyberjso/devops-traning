@@ -1,5 +1,5 @@
 ---
-
+#ansible-playbook  --private-key=/home/jackson/vms/centos-6.6/.vagrant/machines/default/virtualbox/private_key -u vagrant ci-server.yaml 
 - hosts: integration-servers
   become: yes
   become_method: sudo
